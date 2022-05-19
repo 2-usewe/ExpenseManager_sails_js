@@ -1,0 +1,53 @@
+<div class="user_contain">
+    <div class="user-icon"><h3><i class="fa-regular fa-user"></i></h3></div>
+        <div class="row user_name"><%=user%></div>
+        <div class="row add_new">
+            <a href="/user/addaccount" class="btn transac_btn">Add Account</a><br>
+            <a href="/<%=accountId%>/transactions/add" class="btn transac_btn">Add Transaction</a>
+        </div>
+    
+    </div>
+    <div class="row"  style="margin-top: 0%; color:aliceblue; text-align:center;">
+       
+        <h1>Transactions...! <i class="fa-solid fa-indian-rupee-sign"></i></h1>
+    <h4>Accounts Name:- <b style="color: rgb(182, 201, 137);"><%=foundaccount.accountname%></b></h4>
+        <table class="tables">
+        <thead class="t_head">
+            <tr>
+                <th>Sl.no</th>
+                <th>Date</th>
+                <th>By</th>
+                <th>Type</th>
+                <th>Amount</th>
+                <th>Description</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+           <% if(transaction.length>0){ %>
+            <% transaction.forEach(function(transaction,index){ %>
+            <tr>
+                <td><%= index+1 %></td>
+                <td><%= transaction.date %></td>
+                <td><%= transaction.user.name %></td>
+                <td><%= transaction.type %></td>
+                <td><%= transaction.amount %></td>
+                <td><%= transaction.desc %></td>
+                <td>
+                    <a href="/<%=accountId%>/transactions/edit/<%= transaction.id %>" class="btn border-shadow update" style="background-color: rgb(48, 226, 28);">
+                        <span class="text-gradient" style="color: rgb(252, 252, 252);" > Edit</span>
+                    </a>
+                    <a href="/<%=accountId%>/transaction/delete/<%= transaction.id %>" method="get" class="btn border-shadow update" style="background-color: rgb(250, 13, 13);" >
+                        <span class="text-gradient" style="color: rgb(255, 251, 251);"><i class="fas fa-times"></i> </span>
+                    </a>
+                </td>
+            </tr>
+          <% }) %>
+          <% } %>
+        </tbody>
+    </table><br>
+    <a href="/user" method="get" class="btn border-shadow update" style="background-color: rgb(84, 40, 40);" >
+        <span class="text-gradient" style="color: rgb(255, 251, 251);">ACCOUNT</span>
+    </a>
+    </div>
+    

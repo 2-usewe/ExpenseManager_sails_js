@@ -1,0 +1,100 @@
+/**
+ * importer.less
+ *
+ * By default, new Sails projects are configured to compile this file
+ * from LESS to CSS.  Unlike CSS files, LESS files are not compiled and
+ * included automatically unless they are imported below.
+ *
+ * For more information see:
+ *   https://sailsjs.com/anatomy/assets/styles/importer-less
+ */
+
+
+// For example:
+//
+// @import 'variables/colors.less';
+// @import 'mixins/foo.less';
+// @import 'mixins/bar.less';
+// @import 'mixins/baz.less';
+//
+// @import 'mixins-and-variables.less';
+// @import 'pages/login.less';
+// @import 'pages/signup.less';
+//
+// etc.
+
+/*! This special bang (!) comment is here to trick the `hash` Grunt task into working out-of-the-box, without any real CSS. You can delete this once you've imported ≥1 .less file as demonstrated above. */
+body{
+    background-color: rgb(72, 68, 68);
+}
+nav{
+    margin-top: 5px;
+    background: linear-gradient(to bottom,rgb(10, 7, 7),rgb(130, 124, 124));
+}
+
+.register-div{
+    background-color: white;
+    max-width:50%;
+    margin-left: 25%;
+    border-radius: 10px;
+}
+.maintitle{
+    text-align: center; 
+    padding:4px;
+    color: white; 
+    background-color:rgb(97, 94, 94);
+    border-radius: 10px;
+}
+.form-controll{
+    margin: 50px;
+}
+.formbtn{
+    margin-left: 18%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.user_contain{
+    margin-top: 50px;
+    margin-left: 50px;
+    max-width: 200px;
+    max-height: 300px;
+    color: white;
+    background-color: rgb(87, 182, 194) ;
+    border-radius: 10px;
+}
+.user-icon{
+    margin-left: 40%;
+}
+.user_name{
+    text-align: center;
+}
+.fa-user{
+    
+    height: 10px;
+    width: 10px;
+    
+}
+.tables{
+    background-color: rgb(64, 49, 138);
+    max-width: 60%;
+    border-radius: 10px;
+    margin-left: 21%;
+}
+th{
+    text-align: center;
+}
+td{
+    text-align: center;
+}
+.acc-details-div{
+    text-align: center;
+    max-width: 100%;
+    color: white;
+}
+
+.details-part{
+    color: aliceblue;
+    max-width: 80%;
+    background-color: rgb(8, 100, 100);
+    margin-left: 10%;
+}

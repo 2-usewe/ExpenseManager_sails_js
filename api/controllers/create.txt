@@ -1,0 +1,69 @@
+create:function(req,res){
+    if (_.isUndefined(req.param('email'))) {
+        return res.badRequest('An email address is required.')
+    }
+
+    if (_.isUndefined(req.param('password'))) {
+        return res.badRequest('A password is required.')
+    }
+    for(var i=0;i<User.length;i++){
+        if(req.param('email')===User[i]){
+            return res.badRequest('the email is already exists')
+        }
+    }
+    if (req.param('email')==""||req.param('name')==""||req.param('password')=="") {
+        return res.badRequest('please fill the form correctly.')
+    }
+
+    if (req.param('password').length < 8) {
+        return res.badRequest('Password must be at least 8 characters.')
+    }
+    var name=req.param('name');
+    var email=req.param('email');
+    EmailAddresses.validate({
+        string: email,
+    }).exec({
+        error: function(err){
+            return res.serverError(err);
+        },
+    
+       
+        invalid: function(){
+            return res.badRequest('Does not look like an email address to me!');
+        },
+    
+     
+        success: function(){
+            Password.encryptPassword({
+                password: req.param('password'),
+            }).exec({
+                // if there is an error return a server error 500 status code
+                error: function(err){
+                    return res.serverError(err);
+                },
+           
+                // if success then move on to the next step
+                success: function(result){
+                    sails.log("result Password: ",result);
+                    var user={
+                        name:name,
+                        email:email,
+                        password:result,
+                    };
+                    User.create(user,function(err,data){
+                        if(err)return res.serverError(err);
+                        req.session.user = user.id;
+                        sails.log("user:",user);
+                        sails.log("data:",data);
+                    })
+                    //sails.log('userid: ',data.id);
+                    var token =jwToken.issue({ id: user.id });
+                    res.cookie('sailsjwt', token, {signed: true,maxAge: 30})
+                    sails.log('token: ',token);
+                    return res.redirect('/signup');
+                }
+            })
+        }
+    });
+
+  },

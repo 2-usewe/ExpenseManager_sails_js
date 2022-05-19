@@ -1,0 +1,15 @@
+<div class="container">
+    <div class="register-div">
+        <h4 class="maintitle">Edit Account</h4>
+        <form action="/user/update/<%=acc_id%>" method="post" class="form-controll" onsubmit ="return verifyPassword()">
+            <label for="accountname">Account Name</label>
+            <input type="text" name="accountname" value="<%=account.accountname%>">
+            
+            <div class="row">
+                <input type="submit" class="btn formbtn" value="submit">
+                <a href="/user" class="btn formbtn">back</a>
+            </div> 
+        </form>
+    </div>
+    
+</div>

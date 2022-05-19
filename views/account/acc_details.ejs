@@ -1,0 +1,38 @@
+<div class="message"><h2 style="color: white; text-align: center;">Account Details!<i class="fa-solid fa-money-check-dollar"></i></h2></div>
+<div class="details" style="margin-left:25%; margin-right: 25%; margin-top: 100px;
+padding: 10px;background-color: rgb(75, 106, 96); border-radius: 5px;">
+<div class="row">
+    <div><h1 style="margin-left: 46%; color: white;"><i class="fa-solid fa-user" ></i></h1></div>
+    <div class="row"><h4 style="color: white;margin-top:10px;text-align: center;"><%=account.members.name%></h4></div>
+    <label for="accountname" ><h5>Account Name:</h5></label>
+    <h4><%=account.accountname%></h4>
+</div>
+<div class="row">
+    <label for="description" ><h5>Description:</h5></label>
+    <h4><%=account.desc%></h4>
+</div>
+<div class="row">
+    <label for="member" ><h5>Account Holdername:</h5></label>
+  
+    <h4><span><%=account.members.name%></span> </h4>
+
+   <label for="member" ><h5>E-mail:</h5></label>
+  
+    <h4><span><%=account.members.email%></span> </h4>
+</div>
+<div class="row">
+    <label for="expense" ><h5>Expence:</h5></label>
+    <h4><%= expense + transfer %></h4>
+</div>
+<div class="row">
+    <label for="income" ><h5>Income:</h5></label>
+    <h4><%= income %></h4>
+</div>
+<div class="row">
+    <label for="total" ><h5>Total:</h5></label>
+    <h4><%=income-expense - transfer %></h4>
+</div>
+<a href="/user" class="btn border-shadow update">
+    <span class="text-gradient">back </span>
+</a>
+</div>

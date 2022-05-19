@@ -1,0 +1,17 @@
+<div class="container">
+    <div class="register-div">
+        <h4 class="maintitle">New Register</h4>
+        <form action="/user/login" method="post" class="form-controll" onsubmit ="return verifyPassword()">
+            <label for="email">email</label>
+            <input type="text" name="email">
+            <label for="password">password</label>
+            <input type="password" name="password" id="pswd">
+            <small id="message">password must be 8 characters</small>
+            <div class="row">
+                <input type="submit" class="btn formbtn" value="submit">
+                <a href="/" class="btn formbtn">back</a>
+            </div> 
+        </form>
+    </div>
+    
+</div>
